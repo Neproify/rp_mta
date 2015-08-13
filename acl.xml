@@ -21,10 +21,6 @@
         <acl name="autoACL_guieditor"></acl>
         <object name="resource.guieditor"></object>
     </group>
-    <acl name="Support">
-    </acl>
-    <acl name="Admin">
-    </acl>
     <acl name="Default">
         <right name="general.ModifyOtherObjects" access="false"></right>
         <right name="general.http" access="false"></right>
@@ -101,8 +97,6 @@
         <right name="function.setServerConfigSetting" access="false"></right>
         <right name="function.updateResourceACLRequest" access="false"></right>
         <right name="command.aclrequest" access="false"></right>
-
-
     </acl>
     <acl name="Console">
         <right name="general.ModifyOtherObjects" access="true"></right>

@@ -1,4 +1,4 @@
-local db = export.db
+local db = exports.db
 
 addEvent("onLoginRequest", true)
 addEventHandler("onLoginRequest", root, function(login, password)

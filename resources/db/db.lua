@@ -6,7 +6,7 @@ local dbHandle = nil
 
 addEventHandler("onResourceStart", resourceRoot, function()
 	dbHandle = Connection("mysql", "dbname=".. dbDatabase .. ";host=".. dbAddress ..";charset=utf8", dbUser, dbPassword)
-	if(dbHandle)
+	if(dbHandle) then
 		-- Wszystko okej, mamy połączenie
 	else
 		shutdown("Brak połączenia z bazą MySQL")

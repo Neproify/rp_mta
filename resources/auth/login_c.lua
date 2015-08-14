@@ -1,4 +1,4 @@
-addCommandHandler("login", function(cmd, login, password)
+addCommandHandler("zaloguj", function(cmd, login, password)
 	triggerServerEvent("onLoginRequest", localPlayer, login, password)
 end)
 

@@ -11,11 +11,11 @@ end)
 addEvent("onCharactersFetched", true)
 addEventHandler("onCharactersFetched", root, function()
 	local characters = localPlayer:getData("characters")
-	localPlayer:outputChat("==== TWOJE POSTACIE ====")
+	outputChatBox("==== TWOJE POSTACIE ====")
 	for i,v in ipairs(characters) do
-		localPlayer:outputChat("UID: ".. v["UID"] ..", name: "..v["name"].."")
+		outputChatBox("UID: ".. v["UID"] ..", name: "..v["name"].."")
 	end
-	localPlayer:outputChat("Użyj /character [UID] by wybrać jedną z postaci.")
+	outputChatBox("Użyj /character [UID] by wybrać jedną z postaci.")
 end)
 
 addEvent("onCharacterSelected", true)
@@ -24,5 +24,5 @@ addEventHandler("onCharacterSelected", root, function()
 	if not charInfo then
 		return
 	end
-	localPlayer:outputChat("Postać wybrana")
+	outputChatBox("Postać wybrana")
 end)

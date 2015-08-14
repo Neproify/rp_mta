@@ -9,7 +9,7 @@ addEventHandler("onLoginRequest", root, function(login, password)
 	end
 
 	local salt = db:fetch("SELECT `salt` FROM `mybb_users` WHERE `username`=? LIMIT 1;", login)
-	salt = salt[0]["salt"]
+	salt = salt[1]["salt"]
 	if not salt then
 		local result = {success=false, message="Podane konto nie istnieje w bazie danych. Sprawdź czy wpisany login jest poprawny."}
 		triggerClientEvent(client, "onLoginResult", root, result)
@@ -17,7 +17,7 @@ addEventHandler("onLoginRequest", root, function(login, password)
 	end
 
 	local globalInfoTemp = db:fetch("SELECT `uid`, `username` FROM `mybb_users` WHERE `username`=? AND `password`=md5(CONCAT(md5(?),md5(?))) LIMIT 1;", login, salt, password)
-	globalInfoTemp = globalInfoTemp[0]
+	globalInfoTemp = globalInfoTemp[1]
 	if not globalInfoTemp then
 		local result = {success=false, message="Podałeś nieprawidłowy login i/lub hasło."}
 		triggerClientEvent(client, "onLoginResult", root, result)

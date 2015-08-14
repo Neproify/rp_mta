@@ -2,4 +2,6 @@
 	<oop>true</oop>
 	<script src="login_s.lua" type="server"/>
 	<script src="login_c.lua" type="client"/>
+	<script src="char_s.lua" type="server"/>
+	<script src="char_c.lua" type="client"/>
 </meta>

@@ -1,7 +1,7 @@
 local dbAddress = "localhost"
-local dbUser = "root"
+local dbUser = "neproify"
 local dbPassword = "neproify.kl[000]cek"
-local dbDatabase = "roleplay"
+local dbDatabase = "neproify"
 local dbHandle = nil
 
 addEventHandler("onResourceStart", resourceRoot, function()

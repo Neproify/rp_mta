@@ -1,11 +1,11 @@
-addCommandHandler("character", function(cmd, uid)
-	if not uid then
+addCommandHandler("character", function(cmd, UID)
+	if not UID then
 	end
 	local globalInfo = localPlayer:getData("globalInfo")
 	if not globalInfo then
 		return
 	end
-
+	triggerServerEvent("selectCharacter", localPlayer, UID)
 end)
 
 addEvent("onCharactersFetched", true)

@@ -1,4 +1,4 @@
-local dbAddress = "localhost"
+local dbAddress = "127.0.0.1"
 local dbUser = "neproify"
 local dbPassword = "neproify.kl[000]cek"
 local dbDatabase = "neproify"

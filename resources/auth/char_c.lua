@@ -25,5 +25,5 @@ addEventHandler("onCharacterSelected", root, function()
 		return
 	end
 	-- spawnujemy gracza, itd.
-	triggerServerEvent("spawn", localPlayer)
+	triggerServerEvent("spawnPlayer", localPlayer)
 end)

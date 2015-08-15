@@ -1,5 +1,5 @@
-addEvent("spawn", true)
-addEventHandler("spawn", root, function()
+addEvent("spawnPlayer", true)
+addEventHandler("spawnPlayer", root, function()
 	local charInfo = client:getData("charInfo")
 	if not charInfo then
 		return

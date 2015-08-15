@@ -10,7 +10,7 @@ addEventHandler("onPlayerChat", root, function(msg, msgType)
 		local nearbyPlayers = chatSphere:getElementsWithin("player")
 		for i,v in ipairs(nearbyPlayers) do
 			local name = source.name
-			outputChatBox(name.." mówi: "..msg, v)
+			v:outputChat("#FFFFFF"..name.." mówi: "..msg, 0, 0, 0, true)
 		end
 	end
 end)

@@ -1,6 +1,7 @@
 addEvent("spawnPlayer", true)
 addEventHandler("spawnPlayer", root, function()
-	local globalInfo, charInfo = client:getData("globalInfo"), client:getData("charInfo")
+	local globalInfo = client:getData("globalInfo")
+	local charInfo = client:getData("charInfo")
 	if not globalInfo or not charInfo then
 		return
 	end

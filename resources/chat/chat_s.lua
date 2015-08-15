@@ -5,8 +5,9 @@ addEventHandler("onPlayerChat", root, function(msg, msgType)
 		return
 	end
 	if msgType == 0 then -- normalny chat
-		if msg[1] == "." then
+		if string.sub(msg, 1, 1) == "." then
 			source:outputChat("Chat ooc")
+			return
 		end
 		local pos = source.position
 		local chatSphere = ColShape.Sphere(pos, 15)

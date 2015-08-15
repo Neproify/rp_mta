@@ -16,7 +16,7 @@ addEventHandler("onLoginRequest", root, function(login, password)
 		return
 	end
 
-	local globalInfoTemp = db:fetch("SELECT `uid`, `username` FROM `mybb_users` WHERE `username`=? AND `password`=md5(CONCAT(md5(?),md5(?))) LIMIT 1;", login, salt, password)
+	local globalInfoTemp = db:fetch("SELECT `uid`, `username`, `score`, `admin`, `permissions` FROM `mybb_users` WHERE `username`=? AND `password`=md5(CONCAT(md5(?),md5(?))) LIMIT 1;", login, salt, password)
 	globalInfoTemp = globalInfoTemp[1]
 	if not globalInfoTemp then
 		local result = {success=false, message="Podałeś nieprawidłowy login i/lub hasło."}
@@ -27,6 +27,9 @@ addEventHandler("onLoginRequest", root, function(login, password)
 	local globalInfo = {}
 	globalInfo["UID"] = globalInfoTemp["uid"]
 	globalInfo["name"] = globalInfoTemp["username"]
+	globalInfo["score"] = globalInfoTemp["score"]
+	globalInfo["admin"] = globalInfoTemp["admin"]
+	globalInfo["permissions"] = globalInfoTemp["permissions"]
 
 	client:setData("globalInfo", globalInfo)
 	local result ={success=true, message="Zalogowałeś się."}

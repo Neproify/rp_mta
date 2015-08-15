@@ -1,6 +1,6 @@
 addCommandHandler("zaloguj", function(cmd, login, password)
 	local globalInfo = localPlayer:getData("globalInfo")
-	if not globalInfo then
+	if globalInfo then
 		return
 	end
 	triggerServerEvent("onLoginRequest", localPlayer, login, password)

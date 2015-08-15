@@ -24,5 +24,6 @@ addEventHandler("onCharacterSelected", root, function()
 	if not charInfo then
 		return
 	end
-	outputChatBox("Postać wybrana")
+	-- spawnujemy gracza, itd.
+	triggerServerEvent("spawnPlayer", localPlayer)
 end)

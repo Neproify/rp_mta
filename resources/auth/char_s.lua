@@ -28,5 +28,6 @@ addEventHandler("selectCharacter", root, function(UID)
 	end
 	client:setData("characters", nil)
 	client:setData("charInfo", charInfo)
+	client:setName(charInfo["name"])
 	triggerClientEvent(client, "onCharacterSelected", root)
 end)

@@ -5,8 +5,8 @@ addEventHandler("onPlayerChat", root, function(msg, msgType)
 		return
 	end
 	if msgType == 0 then -- normalny chat
-		local posX, posY, posZ = source.position
-		local chatSphere = ColShape.Sphere(posX, posY, posZ, 15)
+		local pos = source.position
+		local chatSphere = ColShape.Sphere(pos, 15)
 		local nearbyPlayers = chatSphere:getElementsWithin("player")
 		for i,v in ipairs(nearbyPlayers) do
 			local name = source.name

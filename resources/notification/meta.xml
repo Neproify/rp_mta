@@ -1,6 +1,6 @@
 <meta>
 	<script src="notification_s.lua" type="server" />
-	<script src="notifiaction_c.lua" type="client" />
+	<script src="notification_c.lua" type="client" />
 	<export function="add" type="server" />
 	<export function="add" type="client" />
 </meta>

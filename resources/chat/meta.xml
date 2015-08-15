@@ -1,2 +1,4 @@
 <meta>
+	<oop>true</oop>
+	<script src="chat_s.lua" type="server" />
 </meta>

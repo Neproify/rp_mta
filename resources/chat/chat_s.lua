@@ -26,3 +26,16 @@ addEventHandler("onPlayerChat", root, function(msg, msgType)
 		end
 	end
 end)
+
+function Player:clearChat()
+	local i = 0
+	while i < 200 do
+		self:outputChat("")
+		i = i + 1
+	end
+end
+
+-- clearChat export
+function clearChat(plr)
+	plr:clearChat()
+end

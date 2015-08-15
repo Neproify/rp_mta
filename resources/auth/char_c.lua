@@ -11,6 +11,7 @@ end)
 addEvent("onCharactersFetched", true)
 addEventHandler("onCharactersFetched", root, function()
 	local characters = localPlayer:getData("characters")
+	exports.chat:clearChat()
 	outputChatBox("==== TWOJE POSTACIE ====")
 	for i,v in ipairs(characters) do
 		outputChatBox("UID: ".. v["UID"] ..", name: "..v["name"].."")
@@ -25,5 +26,6 @@ addEventHandler("onCharacterSelected", root, function()
 		return
 	end
 	-- spawnujemy gracza, itd.
+	exports.chat:clearChat()
 	triggerServerEvent("spawnPlayer", localPlayer)
 end)

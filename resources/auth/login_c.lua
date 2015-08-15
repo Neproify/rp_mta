@@ -8,7 +8,7 @@ end)
 
 addEvent("onLoginResult", true)
 addEventHandler("onLoginResult", root, function(result)
-	outputChatBox(result.message)
+	exports.notification:add(result.message)
 	if result.success then
 		triggerServerEvent("fetchCharacters", localPlayer)
 	end

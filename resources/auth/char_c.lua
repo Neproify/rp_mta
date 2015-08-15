@@ -22,6 +22,7 @@ end)
 addEvent("onCharacterSelected", true)
 addEventHandler("onCharacterSelected", root, function()
 	local charInfo = localPlayer:getData("charInfo")
+	local globalInfo = localPlayer:getData("globalInfo")
 	if not charInfo then
 		return
 	end

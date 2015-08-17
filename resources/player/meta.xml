@@ -1,4 +1,11 @@
 <meta>
 	<oop>true</oop>
 	<script src="spawn_s.lua" type="server" />
+	<script src="id_s.lua" type="server" />
+	<script src="id_c.lua" type="client" />
+
+	<export function="getByID" type="server" />
+	<export function="getByName" type="server" />
+	<export function="getByID" type="client" />
+	<export function="getByName" type="client" />
 </meta>

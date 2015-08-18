@@ -10,7 +10,7 @@ addCommandHandler("apojazd", function(player, cmdname, param1, param2, param3)
 		local vehicle = nil
 		for i,v in ipairs(Element.getAllByType("vehicle")) do
 			local vehInfo = v:getData("vehInfo")
-			if vehInfo["UID"] == param2 then
+			if vehInfo["UID"] == tonumber(param2) then
 				vehicle = v
 				break
 			end

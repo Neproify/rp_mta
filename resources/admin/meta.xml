@@ -1,0 +1,6 @@
+<meta>
+	<!-- uprawnienia admina:
+	1 - pojazdy -->
+	<oop>true</oop>
+	<script src="vehicles_s.lua" type="server" />
+</meta>

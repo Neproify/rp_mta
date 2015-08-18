@@ -7,10 +7,11 @@ addCommandHandler("apojazd", function(player, cmdname, param1, param2, param3)
 		if not param2 or not param3 then
 			exports.notification:add(player, "Użyj: /apojazd hp [uid pojazdu] [ilość hp]")
 		end
+		param2, param3 = tonumber(param2), tonumber(param3)
 		local vehicle = nil
 		for i,v in ipairs(Element.getAllByType("vehicle")) do
 			local vehInfo = v:getData("vehInfo")
-			if vehInfo["UID"] == tonumber(param2) then
+			if vehInfo["UID"] == param2 then
 				vehicle = v
 				break
 			end
@@ -19,11 +20,11 @@ addCommandHandler("apojazd", function(player, cmdname, param1, param2, param3)
 			exports.notification:add(player, "Nie znaleziono pojazdu z UID: ".. param2)
 			return
 		end
-		if tonumber(param3) < 0 or tonumber(param3) > 1000 then
+		if param3 < 0 or param3 > 1000 then
 			exports.notification:add(player, "Podałeś nieprawidłową liczbę HP.")
 			return
 		end
-		vehicle:setHealth(tonumber(param3))
+		vehicle:setHealth(param3)
 	else
 		exports.notification:add(player, "Użyj: /apojazd [hp]")
 	end

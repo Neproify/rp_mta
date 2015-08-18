@@ -33,14 +33,14 @@ function spawnVehicle(UID)
 	vehicle:setHealth(vehInfoTemp["HP"])
 	local panelState = string.explode(vehInfoTemp["panelstates"], ",")
 	for i,v in ipairs(panelState) do
-		vehicle:setPanelState(i-1, v)
+		vehicle:setPanelState(i-1, tonumber(v))
 	end
 	local doorState = string.explode(vehInfoTemp["doorstates"], ",")
 	for i,v in ipairs(doorState) do
-		vehicle:setDoorState(i-1, v)
+		vehicle:setDoorState(i-1, tonumber(v))
 	end
 	local wheelStates = string.explode(vehInfoTemp["wheelstates"], ",")
-	vehicle:setWheelStates(wheelStates[1], wheelStates[2], wheelStates[3], wheelStates[4])
+	vehicle:setWheelStates(tonumber(wheelStates[1]), tonumber(wheelStates[2]), tonumber(wheelStates[3]), tonumber(wheelStates[4]))
 end
 
 function Vehicle:save()

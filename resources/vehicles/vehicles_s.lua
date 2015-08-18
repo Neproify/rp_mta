@@ -59,7 +59,7 @@ function Vehicle:save()
 	end
 	doorState = table.concat(doorState, ",")
 	local wheelState = {}
-	wheelState[0], wheelState[1], wheelState[2], wheelState[3] = self:getWheelStates()
+	wheelState[1], wheelState[2], wheelState[3], wheelState[4] = self:getWheelStates()
 	wheelState = table.concat(wheelState, ",")
 
 	db:query("UPDATE `rp_vehicles` SET `model`=?, `ownerType`=?, `owner`=?, `HP`=?, `panelstates`=?, `doorstates`=?, `wheelstates`=? WHERE `UID`=?",

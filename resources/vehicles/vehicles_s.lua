@@ -37,9 +37,6 @@ function spawnVehicle(UID)
 	end
 	local doorState = string.explode(vehInfoTemp["doorstates"], ",")
 	for i,v in ipairs(doorState) do
-		if v == 4 then
-			v = 3
-		end
 		vehicle:setDoorState(i-1, tonumber(v))
 	end
 	local wheelStates = string.explode(vehInfoTemp["wheelstates"], ",")

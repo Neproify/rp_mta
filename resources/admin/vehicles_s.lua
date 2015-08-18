@@ -1,6 +1,6 @@
 addCommandHandler("apojazd", function(player, cmdname, param1, param2, param3)
 	local globalInfo = player:getData("globalInfo")
-	if not bittest(globalInfo["permissions"], 1) then
+	if not bitTest(globalInfo["permissions"], 1) then
 		return
 	end
 	if param1 == "hp" then

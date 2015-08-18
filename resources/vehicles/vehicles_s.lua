@@ -63,7 +63,7 @@ function Vehicle:save()
 	wheelState = table.concat(wheelState, ",")
 
 	db:query("UPDATE `rp_vehicles` SET `model`=?, `ownerType`=?, `owner`=?, `HP`=?, `panelstates`=?, `doorstates`=?, `wheelstates`=? WHERE `UID`=?",
-		vehInfo["model"], vehInfo["ownerType"], vehInfo["owner"], self.health, panelState, doorState, WheelState, vehInfo["UID"])
+		vehInfo["model"], vehInfo["ownerType"], vehInfo["owner"], self.health, panelState, doorState, wheelState, vehInfo["UID"])
 end
 
 --kilka funkcji

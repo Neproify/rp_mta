@@ -19,11 +19,10 @@ addCommandHandler("apojazd", function(player, cmdname, param1, param2, param3)
 			exports.notification:add(player, "Nie znaleziono pojazdu z UID: ".. param2)
 			return
 		end
-		if param3 > 0 or param3 > 1000 then
+		if tonumber(param3) > 0 or tonumber(param3) > 1000 then
 			exports.notification:add(player, "Podałeś nieprawidłową liczbę HP.")
 			return
 		end
-		outputDebugString(param3)
 		vehicle:setHealth(tonumber(param3))
 	else
 		exports.notification:add(player, "Użyj: /apojazd [hp]")

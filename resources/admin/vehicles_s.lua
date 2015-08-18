@@ -21,8 +21,9 @@ addCommandHandler("apojazd", function(player, cmdname, param1, param2, param3)
 		end
 		if param3 > 0 or param3 > 1000 then
 			exports.notification:add(player, "Podałeś nieprawidłową liczbę HP.")
+			return
 		end
-		vehicle:setHealth(param3)
+		vehicle:setHealth(tonumber(param3))
 	else
 		exports.notification:add(player, "Użyj: /apojazd [hp]")
 	end

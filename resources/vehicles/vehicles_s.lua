@@ -41,6 +41,7 @@ function spawnVehicle(UID)
 	end
 	local wheelStates = string.explode(vehInfoTemp["wheelstates"], ",")
 	vehicle:setWheelStates(tonumber(wheelStates[1]), tonumber(wheelStates[2]), tonumber(wheelStates[3]), tonumber(wheelStates[4]))
+	vehicle:setOverrideLights(1)
 	vehicle:setData("vehicleEngine", false)
 end
 

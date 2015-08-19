@@ -10,7 +10,7 @@ local loginWindow = nil
 local sw, sh = guiGetScreenSize()
 
 addEventHandler("onClientResourceStart", resourceRoot, function()
-	loginWindow = GuiBrowser(sw /2 - 128, sh /2 - 128, 256, 256, true, false, false)
+	loginWindow = GuiBrowser(sw /2 - 150, sh /2 - 150, 300, 300, true, false, false)
 	addEventHandler("onClientBrowserCreated", loginWindow, function()
 		loginWindow:getBrowser():loadURL("http://mta/local/login.html")
 		showCursor(true)

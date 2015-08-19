@@ -87,6 +87,18 @@ function Vehicle:save()
 		vehInfo["model"], vehInfo["ownerType"], vehInfo["owner"], self.health, vehicleColor, panelState, doorState, wheelState, lightState, vehInfo["UID"])
 end
 
+function getByUID(UID)
+	local vehicle = nil
+	for i,v in ipairs(Element.getAllByType("vehicle")) do
+		local vehInfo = v:getData("vehInfo")
+		if vehInfo["UID"] == UID then
+			vehicle = v
+			break
+		end
+	end
+	return vehicle
+end
+
 --kilka funkcji
 function Check(funcname, ...)
     local arg = {...}

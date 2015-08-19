@@ -26,6 +26,14 @@ addEventHandler("onPlayerChat", root, function(msg, msgType)
 		for i,v in ipairs(nearbyPlayers) do
 			v:outputChat("#FFFFFF"..name.." mówi: "..msg, 0, 0, 0, true)
 		end
+	elseif msgType == 1 then -- /me
+		local pos = source.position
+		local chatSphere = ColShape.Sphere(pos, 20)
+		local nearbyPlayers = chatSphere:getElementsWithin("player")
+		local name = source.name
+		for i,v in ipairs(nearbyPlayers) do
+			v:outputChat("#C2A2DA* "..name.." "..msg, 0, 0, 0, true)
+		end
 	end
 end)
 

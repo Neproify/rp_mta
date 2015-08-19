@@ -11,6 +11,9 @@ local sw, sh = guiGetScreenSize()
 
 addEventHandler("onClientResourceStart", resourceRoot, function()
 	loginWindow = Browser(640, 480, true)
+end)
+
+addEventHandler("onClientBrowserCreated", webBrowser, function()
 	loginWindow:loadURL("http://mta/local/login.html")
 	addEventHandler("onClientRender", root, renderLoginGUI)
 end)

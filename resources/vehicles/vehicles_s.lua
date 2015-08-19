@@ -41,6 +41,10 @@ function spawnVehicle(UID)
 	end
 	local wheelStates = string.explode(vehInfoTemp["wheelstates"], ",")
 	vehicle:setWheelStates(tonumber(wheelStates[1]), tonumber(wheelStates[2]), tonumber(wheelStates[3]), tonumber(wheelStates[4]))
+	local lightState = string.explode(vehInfoTemp["lightstates"], ",")
+	for i,v in ipairs(lightState) do
+		vehicle:setLightState(i-1, tonumber(v))
+	end
 	vehicle:setOverrideLights(1)
 	vehicle:setData("vehicleEngine", false)
 end
@@ -63,9 +67,14 @@ function Vehicle:save()
 	local wheelState = {}
 	wheelState[1], wheelState[2], wheelState[3], wheelState[4] = self:getWheelStates()
 	wheelState = table.concat(wheelState, ",")
+	local lightState = {}
+	for i=0,3 do
+		table.insert(lightState, self:getLightState(i))
+	end
+	table.concat(lightState, ",")
 
-	db:query("UPDATE `rp_vehicles` SET `model`=?, `ownerType`=?, `owner`=?, `HP`=?, `panelstates`=?, `doorstates`=?, `wheelstates`=? WHERE `UID`=?",
-		vehInfo["model"], vehInfo["ownerType"], vehInfo["owner"], self.health, panelState, doorState, wheelState, vehInfo["UID"])
+	db:query("UPDATE `rp_vehicles` SET `model`=?, `ownerType`=?, `owner`=?, `HP`=?, `panelstates`=?, `doorstates`=?, `wheelstates`=?, `lightstates`=? WHERE `UID`=?",
+		vehInfo["model"], vehInfo["ownerType"], vehInfo["owner"], self.health, panelState, doorState, wheelState, lightState, vehInfo["UID"])
 end
 
 --kilka funkcji

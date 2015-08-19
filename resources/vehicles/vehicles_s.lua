@@ -72,6 +72,7 @@ function Vehicle:save()
 		table.insert(lightState, self:getLightState(i))
 	end
 	table.concat(lightState, ",")
+	outputDebugString(lightState)
 
 	db:query("UPDATE `rp_vehicles` SET `model`=?, `ownerType`=?, `owner`=?, `HP`=?, `panelstates`=?, `doorstates`=?, `wheelstates`=?, `lightstates`=? WHERE `UID`=?",
 		vehInfo["model"], vehInfo["ownerType"], vehInfo["owner"], self.health, panelState, doorState, wheelState, lightState, vehInfo["UID"])

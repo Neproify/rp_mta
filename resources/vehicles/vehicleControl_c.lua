@@ -5,6 +5,11 @@ addEventHandler("onClientVehicleEnter", root, function(player, seat)
 	end
 end)
 
+addEventHandler("onClientResourceStart", resourceRoot, function()
+	bindKey("k", "up", "silnik")
+	bindKey("l", "up", "swiatla")
+end)
+
 addCommandHandler("silnik", function()
 	if localPlayer.inVehicle then
 		if localPlayer.vehicleSeat == 0 then

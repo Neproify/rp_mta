@@ -7,16 +7,16 @@ addCommandHandler("zaloguj", function(cmd, login, password)
 end)
 
 local loginWindow = nil
-local sw, sh = guiGetScreenSize()
+local sw, sh = guiGetScreenSize(sw /2 - 320, sh /2 - 240, 640, 480, true, false, false)
 
 addEventHandler("onClientResourceStart", resourceRoot, function()
-	loginWindow = Browser(640, 480, true)
+	loginWindow = GuiBrowser(640, 480, true)
 	addEventHandler("onClientBrowserCreated", loginWindow, function()
 		loginWindow:loadURL("http://mta/local/login.html")
 		showCursor(true)
 		guiSetInputEnabled(true)
 		loginWindow:focus()
-		addEventHandler("onClientRender", root, renderLoginGUI)
+		--addEventHandler("onClientRender", root, renderLoginGUI)
 	end)
 end)
 

@@ -16,7 +16,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 end)
 
 function renderLoginGUI()
-	dxDrawImage(sw - 320, sh - 240, 640, 480, loginWindow)
+	dxDrawImage(sw /2 - 320, sh /2 - 240, 640, 480, loginWindow)
 end
 
 addEvent("onLoginResult", true)

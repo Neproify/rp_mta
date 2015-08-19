@@ -31,6 +31,13 @@ function spawnVehicle(UID)
 	local vehicle = Vehicle(vehInfo["model"], vehInfo["position"], vehInfo["rotation"], "LS"..vehInfo["UID"])
 	vehicle:setData("vehInfo", vehInfo)
 	vehicle:setHealth(vehInfoTemp["HP"])
+	-- kolor pojazdu
+	local vehicleColorTemp = string.explode(vehInfoTemp["color"], ",")
+	local vehicleColor = {}
+	for i,v in ipairs(vehicleColorTemp) do
+		vehicleColor[i] = tonumber(v)
+	end
+	vehicle:setColor(unpack(vehicleColor))
 	local panelState = string.explode(vehInfoTemp["panelstates"], ",")
 	for i,v in ipairs(panelState) do
 		vehicle:setPanelState(i-1, tonumber(v))

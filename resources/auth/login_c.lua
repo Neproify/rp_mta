@@ -21,6 +21,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			if globalInfo then
 				return
 			end
+			outputDebugString(login)
 			triggerServerEvent("onLoginRequest", localPlayer, login, password)
 		end)
 	end)

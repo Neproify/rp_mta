@@ -15,6 +15,14 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		loginWindow:loadURL("http://mta/local/login.html")
 		showCursor(true)
 		guiSetInputEnabled(true)
+		addEventHandler("onClientClick", root,
+	function(button, state)
+	if state == "down" then
+		injectBrowserMouseDown(loginWindow, button)
+	else
+		injectBrowserMouseUp(loginWindow, button)
+	end 
+end)
 		addEventHandler("onClientRender", root, renderLoginGUI)
 	end)
 end)

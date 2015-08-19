@@ -17,7 +17,7 @@ function assignID(plr)
 		if v == free_id then free_id = free_id + 1 end
 		if (v > free_id) then break end
 	end
-	plr:setData("ID", free_id)
+	plr:setData("ID", tonumber(free_id))
 end
 
 function getByID(ID)

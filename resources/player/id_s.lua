@@ -3,7 +3,7 @@ addEventHandler("onPlayerJoin", root, function()
 end)
 
 function assignID(plr)
-	local players = Element:getAllByType("player")
+	local players = Element.getAllByType("player")
 	local ids_table = {}
 	for i,v in ipairs(players) do
 		local ID = v:getData("ID")
@@ -17,12 +17,11 @@ function assignID(plr)
 		if v == free_id then free_id = free_id + 1 end
 		if (v > free_id) then break end
 	end
-	outputDebugString("przydzielono id"..free_id)
 	plr:setData("ID", tonumber(free_id))
 end
 
 function getByID(ID)
-	local players = Element:getAllByType("player")
+	local players = Element.getAllByType("player")
 	for i,v in ipairs(players) do
 		if v:getData("ID") == ID then return v end
 	end

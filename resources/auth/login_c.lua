@@ -15,18 +15,24 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		loginWindow:getBrowser():loadURL("http://mta/local/login.html")
 		showCursor(true)
 		guiSetInputEnabled(true)
-		--addEventHandler("onClientRender", root, renderLoginGUI)
+		addEvent("onLoginForm", true)
+		addEventHandler("onLoginForm", loginWindow:getBrowser(), function(source, login, password)
+			local globalInfo = localPlayer:getData("globalInfo")
+			if globalInfo then
+				return
+			end
+			triggerServerEvent("onLoginRequest", localPlayer, login, password)
+		end)
 	end)
 end)
-
-function renderLoginGUI()
-	dxDrawImage(sw /2 - 128, sh /2 - 128, 256, 256, loginWindow, 0, 0, 0, tocolor(255,255,255,255), true)
-end
 
 addEvent("onLoginResult", true)
 addEventHandler("onLoginResult", root, function(result)
 	exports.notification:add(result.message)
 	if result.success then
+		loginWindow:destroy()
+		showCursor(false)
+		guiSetInputEnabled(false)
 		triggerServerEvent("fetchCharacters", localPlayer)
 	end
 end)

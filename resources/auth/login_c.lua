@@ -10,7 +10,7 @@ local loginWindow = nil
 local sw, sh = guiGetScreenSize()
 
 addEventHandler("onClientResourceStart", resourceRoot, function()
-	loginWindow = GuiBrowser(sw /2 - 320, sh /2 - 240, 640, 480, true, false, false)
+	loginWindow = GuiBrowser(sw /2 - 128, sh /2 - 128, 256, 256, true, false, false)
 	addEventHandler("onClientBrowserCreated", loginWindow, function()
 		loginWindow:getBrowser():loadURL("http://mta/local/login.html")
 		showCursor(true)
@@ -20,7 +20,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 end)
 
 function renderLoginGUI()
-	dxDrawImage(sw /2 - 320, sh /2 - 240, 640, 480, loginWindow, 0, 0, 0, tocolor(255,255,255,255), true)
+	dxDrawImage(sw /2 - 128, sh /2 - 128, 256, 256, loginWindow, 0, 0, 0, tocolor(255,255,255,255), true)
 end
 
 addEvent("onLoginResult", true)

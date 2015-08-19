@@ -61,6 +61,9 @@ function Vehicle:save()
 	if not vehInfo then
 		return false
 	end
+	local vehicleColor = {}
+	vehicleColor[1], vehicleColor[2], vehicleColor[3], vehicleColor[4], vehicleColor[5], vehicleColor[6], vehicleColor[7], vehicleColor[8], vehicleColor[9], vehicleColor[10], vehicleColor[11], vehicleColor[12] = self:getColor(true)
+	vehicleColor = table.concat(vehicleColor, ",")
 	local panelState = {}
 	for i=0,6 do
 		table.insert(panelState, self:getPanelState(i))
@@ -80,8 +83,8 @@ function Vehicle:save()
 	end
 	lightState = table.concat(lightState, ",")
 
-	db:query("UPDATE `rp_vehicles` SET `model`=?, `ownerType`=?, `owner`=?, `HP`=?, `panelstates`=?, `doorstates`=?, `wheelstates`=?, `lightstates`=? WHERE `UID`=?",
-		vehInfo["model"], vehInfo["ownerType"], vehInfo["owner"], self.health, panelState, doorState, wheelState, lightState, vehInfo["UID"])
+	db:query("UPDATE `rp_vehicles` SET `model`=?, `ownerType`=?, `owner`=?, `HP`=?, `color`= ?, `panelstates`=?, `doorstates`=?, `wheelstates`=?, `lightstates`=? WHERE `UID`=?",
+		vehInfo["model"], vehInfo["ownerType"], vehInfo["owner"], self.health, vehicleColor, panelState, doorState, wheelState, lightState, vehInfo["UID"])
 end
 
 --kilka funkcji

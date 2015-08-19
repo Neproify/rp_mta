@@ -6,21 +6,45 @@
 		<script src="http://mta/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 		<script>
-			function closeWindow() {
-				mta.triggerEvent("ui2:onClose");
-			}
 		</script>
 	</head>
 	<body>
 		<div class="container">
-			<div class="top">
-				<span>Titel</span>
-				<a onclick="closeWindow();">x</a>
-			</div>
-			<div class="content">
-				<input type="button" value="Button" /><br /><br />
-				<input type="text" placeholder="Text" />
-			</div>
+			<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Zaloguj się</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="logininput">Login</label>  
+  <div class="col-md-4">
+  <input id="logininput" name="logininput" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="passwordinput">Hasło</label>
+  <div class="col-md-4">
+    <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="loginbutton"></label>
+  <div class="col-md-4">
+    <button id="loginbutton" name="loginbutton" class="btn btn-primary">Zaloguj się!</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
 		</div>
 	</body>
 </html>

@@ -45,7 +45,7 @@ addCommandHandler("do", function(player, cmd, ...)
 	local nearbyPlayers = chatSphere:getElementsWithin("player")
 	local name = player.name
 	for i,v in ipairs(nearbyPlayers) do
-		v:outputChat("#9A9CCD* "..msg.. " (("..name.."))", v, 255, 0, 0, true)
+		v:outputChat("#9A9CCD* "..msg.. " (("..name.."))", 0, 0, 0, true)
 	end
 end)
 

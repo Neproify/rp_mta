@@ -1,18 +1,24 @@
-addCommandHandler("zaloguj", function(cmd, login, password)
+--[[addCommandHandler("zaloguj", function(cmd, login, password)
 	local globalInfo = localPlayer:getData("globalInfo")
 	if globalInfo then
 		return
 	end
 	triggerServerEvent("onLoginRequest", localPlayer, login, password)
-end)
+end)--]]
 
 local loginWindow = nil
 local sw, sh = guiGetScreenSize()
 
 addEventHandler("onClientResourceStart", resourceRoot, function()
+	local globalInfo = localPlayer:getData("globalInfo")
+	if globalInfo then
+		return
+	end
 	loginWindow = GuiBrowser(sw /2 - 150, sh /2 - 150, 300, 300, true, false, false)
 	addEventHandler("onClientBrowserCreated", loginWindow, function()
 		loginWindow:getBrowser():loadURL("http://mta/local/login.html")
+		localPlayer:setHudComponentVisible("all", false)
+		client:fadeCamera(true)
 		showCursor(true)
 		guiSetInputEnabled(true)
 		addEvent("onLoginForm", true)

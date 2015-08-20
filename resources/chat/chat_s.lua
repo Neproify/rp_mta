@@ -37,6 +37,18 @@ addEventHandler("onPlayerChat", root, function(msg, msgType)
 	end
 end)
 
+addCommandHandler("do", function(player, cmd, ...)
+	local msg = {...}
+	msg = table.concat(msg, " ")
+	local pos = player.position
+	local chatSphere = ColShape.Sphere(pos, 20)
+	local nearbyPlayers = chatSphere:getElementsWithin("player")
+	local name = player.name
+	for i,v in ipairs(nearbyPlayers) do
+		v:outputChat("#9A9CCD* "..msg.. " (("..name.."))", v, 255, 0, 0, true)
+	end
+end)
+
 function Player:clearChat()
 	local i = 0
 	while i < 200 do

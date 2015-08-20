@@ -16,12 +16,11 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		showCursor(true)
 		guiSetInputEnabled(true)
 		addEvent("onLoginForm", true)
-		addEventHandler("onLoginForm", loginWindow:getBrowser(), function(source, login, password)
+		addEventHandler("onLoginForm", loginWindow:getBrowser(), function(login, password)
 			local globalInfo = localPlayer:getData("globalInfo")
 			if globalInfo then
 				return
 			end
-			outputDebugString(login)
 			triggerServerEvent("onLoginRequest", localPlayer, login, password)
 		end)
 	end)

@@ -14,7 +14,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 	if globalInfo then
 		return
 	end
-	loginWindow = GuiBrowser(sw /2 - 150, sh /2 - 150, 300, 300, true, false, false)
+	loginWindow = GuiBrowser(sw /2 - 150, sh /2 - 150, 300, 300, true, true, false)
 	addEventHandler("onClientBrowserCreated", loginWindow, function()
 		loginWindow:getBrowser():loadURL("http://mta/local/login.html")
 		setPlayerHudComponentVisible("all", false)

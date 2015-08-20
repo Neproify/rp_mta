@@ -1,11 +1,3 @@
---[[addCommandHandler("zaloguj", function(cmd, login, password)
-	local globalInfo = localPlayer:getData("globalInfo")
-	if globalInfo then
-		return
-	end
-	triggerServerEvent("onLoginRequest", localPlayer, login, password)
-end)--]]
-
 local loginWindow = nil
 local sw, sh = guiGetScreenSize()
 

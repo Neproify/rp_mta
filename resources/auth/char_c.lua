@@ -1,13 +1,3 @@
---[[addCommandHandler("character", function(cmd, UID)
-	if not UID then
-	end
-	local globalInfo = localPlayer:getData("globalInfo")
-	if not globalInfo then
-		return
-	end
-	triggerServerEvent("selectCharacter", localPlayer, UID)
-end)--]]
-
 local loginPed = nil
 local selectedChar = 1
 
@@ -21,12 +11,6 @@ addEventHandler("onCharactersFetched", root, function()
 	bindKey("arrow_l", "down", previousChar)
 	bindKey("arrow_r", "down", nextChar)
 	bindKey("enter", "down", selectChar)
-	--[[exports.chat:clearChat()
-	outputChatBox("==== TWOJE POSTACIE ====")
-	for i,v in ipairs(characters) do
-		outputChatBox("UID: ".. v["UID"] ..", name: "..v["name"].."")
-	end
-	outputChatBox("Użyj /character [UID] by wybrać jedną z postaci.")--]]
 end)
 
 function previousChar()
@@ -35,6 +19,7 @@ function previousChar()
 	if selectedChar < 1 then
 		selectedChar = #characters
 	end
+	exports.notification:add(characters[selectedChar]["name"])
 end
 
 function nextChar()
@@ -43,6 +28,7 @@ function nextChar()
 	if selectedChar > #characters then
 		selectedChar = 1
 	end
+	exports.notification:add(characters[selectedChar]["name"])
 end
 
 function selectChar()
@@ -64,5 +50,7 @@ addEventHandler("onCharacterSelected", root, function()
 	-- spawnujemy gracza, itd.
 	localPlayer:setData("characters", nil)
 	exports.chat:clearChat()
+	showChat(true)
+	showPlayerHudComponent("all", true)
 	triggerServerEvent("spawnPlayer", localPlayer)
 end)

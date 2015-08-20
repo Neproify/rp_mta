@@ -11,6 +11,7 @@ addEventHandler("onCharactersFetched", root, function()
 	bindKey("arrow_l", "down", previousChar)
 	bindKey("arrow_r", "down", nextChar)
 	bindKey("enter", "down", selectChar)
+	exports.notification:add(characters[selectedChar]["name"])
 end)
 
 function previousChar()

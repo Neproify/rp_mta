@@ -29,6 +29,9 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			if globalInfo then
 				return
 			end
+			if string.len(login) < 1 or string.len(password) < 1 then
+				return
+			end
 			triggerServerEvent("onLoginRequest", localPlayer, login, password)
 		end)
 	end)

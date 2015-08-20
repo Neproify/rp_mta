@@ -31,7 +31,7 @@ end
 function createGroup(name)
 	db:query("INSERT INTO `rp_groups` SET `name`=?", name)
 	local UID = db:fetch("SELECT MAX(`UID`) AS `UID` FROM `rp_groups`")
-	UID = UID["UID"]
+	UID = UID[1]["UID"]
 	db:query("INSERT INTO `rp_groups_ranks` SET `groupid`=?, `name`=?", UID, "Lider")
 	local headrank = db:fetch("SELECT * FROM `rp_groups_ranks` WHERE `groupid`=?", UID)
 	db:query("UPDATE `rp_groups` SET `headrank`=? WHERE `UID`=?", headrank["UID"], UID)

@@ -34,6 +34,7 @@ function createGroup(name)
 	UID = UID[1]["UID"]
 	db:query("INSERT INTO `rp_groups_ranks` SET `groupid`=?, `name`=?", UID, "Lider")
 	local headrank = db:fetch("SELECT * FROM `rp_groups_ranks` WHERE `groupid`=?", UID)
+	headrank = headrank[1]
 	db:query("UPDATE `rp_groups` SET `headrank`=? WHERE `UID`=?", headrank["UID"], UID)
 	loadGroup(UID)
 end

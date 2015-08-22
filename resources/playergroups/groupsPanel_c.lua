@@ -12,13 +12,13 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 end)
 
 addCommandHandler("g", function()
-	if panelEnabled then
+	--[[if panelEnabled then
 		groupsWindow:getBrowser():setRenderingPaused(true)
 		guiSetVisible(groupsWindow, false)
 		showCursor(false)
 		guiSetInputEnabled(false)
-		panelEnabled = false
-	else
+		panelEnabled = false--]]
+	if not panelEnabled then
 		groupsWindow:getBrowser():setRenderingPaused(false)
 		guiSetVisible(groupsWindow, true)
 		showCursor(true, false)

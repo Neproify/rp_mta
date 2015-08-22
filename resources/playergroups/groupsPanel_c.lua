@@ -16,11 +16,13 @@ addCommandHandler("g", function()
 		groupsWindow:getBrowser():setRenderingPaused(true)
 		guiSetVisible(groupsWindow, false)
 		showCursor(false)
+		guiSetInputEnabled(false)
 		panelEnabled = false
 	else
 		groupsWindow:getBrowser():setRenderingPaused(false)
 		guiSetVisible(groupsWindow, true)
 		showCursor(true, false)
+		guiSetInputEnabled(true)
 		panelEnabled = true
 	end
 end)

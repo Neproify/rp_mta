@@ -28,7 +28,7 @@ function reloadGroupsInList()
 		local groupInfo = nil
 		for _,group in ipairs(allGroups) do
 			if group:getData("groupInfo")["UID"] == v["groupid"] then
-				groupInfo = group
+				groupInfo = group:getData("groupInfo")
 				break
 			end
 		end

@@ -28,7 +28,7 @@ addCommandHandler("g", function()
 		panelEnabled = false--]]
 	if not panelEnabled then
 		if not localPlayer:getData("charInfo") or not localPlayer:getData("groups") then
-			if not localPlayer:getData("groups")
+			if not localPlayer:getData("groups") then
 				triggerServerEvent("loadPlayerGroups", localPlayer)
 			end
 			return

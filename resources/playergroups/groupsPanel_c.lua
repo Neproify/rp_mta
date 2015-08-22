@@ -37,6 +37,7 @@ function reloadGroupsInList()
 		end
 	end
 	groupsWindow:getBrowser():executeJavascript("$(#groups).html('"..groupshtml.."');")
+	outputDebugScript("groupshtml")
 end
 
 addCommandHandler("g", function()

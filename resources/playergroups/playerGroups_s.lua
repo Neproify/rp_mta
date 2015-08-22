@@ -2,8 +2,15 @@ local db = exports.db
 
 function Player:getGroups()
 	local charInfo = self:getData("charInfo")
+	if not charInfo then
+		return false
+	end
 	local groups = db:fetch("SELECT * FROM `rp_groups_members` WHERE `charid`=?", charInfo["UID"])
 	return groups
+end
+
+function Player:loadGroups()
+	return self:setData("groups", self:getGroups())
 end
 
 function Player:havePermissionInGroup(UID, permission)
@@ -20,6 +27,11 @@ function Player:havePermissionInGroup(UID, permission)
 	end
 	return false
 end
+
+addEvent("loadPlayerGroups", true)
+addEventHandler("loadPlayerGroups", root, function()
+	client:loadGroups()
+end)
 
 --exports
 function getPlayerGroups(player)

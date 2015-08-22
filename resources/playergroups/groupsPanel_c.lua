@@ -27,6 +27,12 @@ addCommandHandler("g", function()
 		guiSetInputEnabled(false)
 		panelEnabled = false--]]
 	if not panelEnabled then
+		if not localPlayer:getData("charInfo") or not localPlayer:getData("groups") then
+			if not localPlayer:getData("groups")
+				triggerServerEvent("loadPlayerGroups", localPlayer)
+			end
+			return
+		end
 		groupsWindow:getBrowser():setRenderingPaused(false)
 		guiSetVisible(groupsWindow, true)
 		showCursor(true, false)

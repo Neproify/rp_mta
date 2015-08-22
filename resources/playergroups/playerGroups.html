@@ -17,10 +17,17 @@
 <body style="background-color: rgba(0, 0, 0, 0.5); color: #FFFFFF;">
 	<div class="container">
 		<legend style="color: #FFFFFF;">Twoje grupy</legend>
-		<table>
-			<tr><td>Nazwa</td><td>Szczegóły</td></tr>
-			<div id="groups">
-			</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nazwa</th>
+					<th>Szczegóły</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div id="groups">
+				</div>
+			</tbody>
 		</table>
 		<button class="btn btn-default btn-block" onclick="closePanel();">Zamknij panel grupowy</button>
 	</div>

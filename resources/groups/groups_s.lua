@@ -1,3 +1,9 @@
+--[[
+	Permisje rangi:
+	1 - zarządzanie pracownikami
+	2 - pojazdy
+]]--
+
 local db = exports.db
 
 local testGroup = Element("group")
@@ -24,6 +30,7 @@ function loadGroup(UID)
 	local groupInfo = {}
 	groupInfo["UID"] = groupInfoTemp["UID"]
 	groupInfo["name"] = groupInfoTemp["name"]
+	groupInfo["headrank"] = groupInfoTemp["headrank"]
 	local group = Element("group")
 	group:setData("groupInfo", groupInfo)
 end
@@ -32,7 +39,7 @@ function createGroup(name)
 	db:query("INSERT INTO `rp_groups` SET `name`=?", name)
 	local UID = db:fetch("SELECT MAX(`UID`) AS `UID` FROM `rp_groups`")
 	UID = UID[1]["UID"]
-	db:query("INSERT INTO `rp_groups_ranks` SET `groupid`=?, `name`=?", UID, "Lider")
+	db:query("INSERT INTO `rp_groups_ranks` SET `groupid`=?, `name`=?, `permissions`=1", UID, "Lider")
 	local headrank = db:fetch("SELECT * FROM `rp_groups_ranks` WHERE `groupid`=?", UID)
 	headrank = headrank[1]
 	db:query("UPDATE `rp_groups` SET `headrank`=? WHERE `UID`=?", headrank["UID"], UID)
@@ -43,5 +50,3 @@ function Group:save()
 	local groupInfo = self:getData("groupInfo")
 	db:query("UPDATE `rp_groups` SET `name`=? WHERE `UID`=?", groupInfo["name"], groupInfo["UID"])
 end
-
-createGroup("testowa")

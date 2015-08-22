@@ -1,0 +1,6 @@
+<meta>
+	<oop>true</oop>
+	<script src="playerGroups_s.lua" type="server" />
+	<export function="getPlayerGroups" type="server" />
+	<export function="havePlayerPermissionInGroup" type="server" />
+</meta>

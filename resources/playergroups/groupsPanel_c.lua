@@ -1,6 +1,5 @@
 local groupsWindow = nil
 local groupsLoaded = false
-local panelEnabled = false
 local sw, sh = guiGetScreenSize()
 
 addEventHandler("onClientResourceStart", resourceRoot, function()
@@ -19,7 +18,24 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		end)
 
 		addEventHandler("onClientBrowserDocumentReady", groupsWindow:getBrowser(), function(url)
-			outputChatBox(url)
+			if url == "mta://local/playerGroups.html" then -- ładujemy grupy
+				local groupshtml = ""
+				local groups = localPlayer:getData("groups")
+				for i,v in ipairs(groups) do
+					local allGroups = Element.getAllByType("group")
+					local groupInfo = nil
+					for _,group in ipairs(allGroups) do
+						if group:getData("groupInfo")["UID"] == v["groupid"] then
+							groupInfo = group:getData("groupInfo")
+							break
+						end
+					end
+					if groupInfo then
+						groupshtml = groupshtml .. "<tr><td>"..groupInfo["name"].."</td><td><a href='http://mta/local/group.html?groupid="..groupInfo["UID"].."'>Wejdź</a></td></tr>"
+					end
+				end
+				groupsWindow:getBrowser():executeJavascript('$("'..groupshtml..'").appendTo(".table tbody");');
+			end
 		end)
 	end)
 end)
@@ -48,13 +64,8 @@ addCommandHandler("g", function()
 		if not localPlayer:getData("charInfo") or not localPlayer:getData("groups") then
 			if not localPlayer:getData("groups") then
 				triggerServerEvent("loadPlayerGroups", localPlayer)
-				reloadGroupsInList()
 			end
 			return
-		end
-		if groupsLoaded == false then
-			reloadGroupsInList()
-			groupsLoaded = true
 		end
 		groupsWindow:getBrowser():setRenderingPaused(false)
 		guiSetVisible(groupsWindow, true)

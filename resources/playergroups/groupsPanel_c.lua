@@ -18,7 +18,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		end)
 
 		addEventHandler("onClientBrowserDocumentReady", groupsWindow:getBrowser(), function(url)
-			if url == "mta://local/playerGroups.html" then -- ładujemy grupy
+			if url == "htpp://mta/local/playerGroups.html" then -- ładujemy grupy
 				local groupshtml = ""
 				local groups = localPlayer:getData("groups")
 				for i,v in ipairs(groups) do

@@ -1,6 +1,6 @@
 <meta>
 	<file src="css/bootstrap.min.css"/>
-	<file src="css/bootstrap-theme.min.css"/>
+	<file src="css/bootstrap-theme.css"/>
 	<file src="js/bootstrap.min.js"/>
 	<file src="js/jquery.min.js" />
 </meta>

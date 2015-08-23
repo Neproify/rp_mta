@@ -33,7 +33,7 @@ function reloadGroupsInList()
 			end
 		end
 		if groupInfo then
-			groupshtml = groupshtml .. "<tr><td>"..groupInfo["name"].."</td><td>Wejdź</td></tr>"
+			groupshtml = groupshtml .. "<tr><td>"..groupInfo["name"].."</td><td><a href='http://mta/local/group.html?groupid="..groupInfo["UID"].."'>Wejdź</a></td></tr>"
 		end
 	end
 	groupsWindow:getBrowser():executeJavascript('$("'..groupshtml..'").appendTo(".table tbody");');

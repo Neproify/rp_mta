@@ -54,7 +54,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 					return
 				end
 				local groupInfo = group:getData("groupInfo")
-				groupsWindow:getBrowser():executeJavascript("$('"..groupInfo["name"].."').appendTo('legend name');")
+				groupsWindow:getBrowser():executeJavascript("$('#name b)'.html('"..groupInfo["name"].."');")
 			end
 		end)
 	end)

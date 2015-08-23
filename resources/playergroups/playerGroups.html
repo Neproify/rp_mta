@@ -12,8 +12,6 @@
 		{
 			mta.triggerEvent("onGroupPanelClose");
 		}
-
-		$("#groups").append("<tr><td>Testowa</td><td>Wejdź</td></tr>");
 	</script>
 </head>
 <body style="background-color: rgba(0, 0, 0, 0.5); color: #FFFFFF;">
@@ -32,6 +30,9 @@
 			</tbody>
 		</table>
 		<button class="btn btn-default btn-block" onclick="closePanel();">Zamknij panel grupowy</button>
+		<script>
+			$("#groups").append("<tr><td>Testowa</td><td>Wejdź</td></tr>");
+		</script>
 	</div>
 </body>
 </html>

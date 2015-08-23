@@ -36,7 +36,7 @@ function reloadGroupsInList()
 			groupshtml = groupshtml .. "<tr><td>"..groupInfo["name"].."</td><td>Wejdź</td></tr>"
 		end
 	end
-	groupsWindow:getBrowser():executeJavascript('$("#groups").append("'..groupshtml..'");')
+	groupsWindow:getBrowser():executeJavascript('$("'..groupshtml..'").appendTo(".table tbody");');
 end
 
 addCommandHandler("g", function()

@@ -17,6 +17,10 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			guiSetInputEnabled(false)
 			panelEnabled = false
 		end)
+
+		addEventHandler("onClientBrowserDocumentReady", groupsWindow:getBrowser(), function(url)
+			outputChatBox(url)
+		end)
 	end)
 end)
 

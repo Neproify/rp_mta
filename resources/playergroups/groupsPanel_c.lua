@@ -21,6 +21,9 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			if url == "http://mta/local/playerGroups.html" then -- ładujemy grupy
 				local groupshtml = ""
 				local groups = localPlayer:getData("groups")
+				if not groups then
+					return
+				end
 				for i,v in ipairs(groups) do
 					local allGroups = Element.getAllByType("group")
 					local groupInfo = nil
@@ -93,4 +96,9 @@ addCommandHandler("g", function()
 		guiSetInputEnabled(true)
 		panelEnabled = true
 	end
+end)
+
+addEvent("onCharacterSelected", true)
+addEventHandler("onCharacterSelected", root, function()
+	groupsWindow:getBrowser():loadURL("http://mta/local/playerGroups.html")
 end)

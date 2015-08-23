@@ -42,7 +42,19 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 					return
 				end
 				groupid = tonumber(groupid)
-				outputDebugString(groupid)
+				local group = nil
+				for i,v in ipairs(Element.getAllByType("group")) do
+					if v:getData("groupInfo")["UID"] == groupid then
+						group = v
+						break
+					end
+				end
+				if not group then
+					groupsWindow:getBrowser():loadURL("http://mta/local/playerGroups.html")
+					return
+				end
+				local groupInfo = group:getData("groupInfo")
+				groupsWindow:getBrowser():executeJavascript("$('"..groupInfo["name"].."').appendTo('legend #name');")
 			end
 		end)
 	end)

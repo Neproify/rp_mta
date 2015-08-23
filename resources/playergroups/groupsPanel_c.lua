@@ -38,7 +38,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 					end
 				end
 				groupsWindow:getBrowser():executeJavascript('$("'..groupshtml..'").appendTo(".table tbody");');
-			elseif url:find("http://mta/local/group.html?") then -- ładujemy "dane" grupy
+			elseif url:find("http://mta/local/group.html") then -- ładujemy "dane" grupy
 				local groupid = url:sub(37)
 				if not groupid then
 					groupsWindow:getBrowser():loadURL("http://mta/local/playerGroups.html")
@@ -58,6 +58,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				end
 				local groupInfo = group:getData("groupInfo")
 				groupsWindow:getBrowser():executeJavascript("$('#name b').html('"..groupInfo["name"].."');")
+				groupsWindow:getBrowser():executeJavascript("$('.dropdown-menu').append('<li><a href='#'>Informacje o grupie</a></li>');")
 			end
 		end)
 	end)

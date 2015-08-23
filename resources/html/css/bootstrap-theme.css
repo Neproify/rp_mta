@@ -1,7 +1,11 @@
 .btn {
-  border-radius: 0px;
+	border-radius: 0px;
 }
 
 .btn-block {
-  border-radius: 0px;
+	border-radius: 0px;
+}
+
+.dropdown-menu {
+	border-radius: 0px;
 }

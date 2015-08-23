@@ -35,6 +35,14 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 					end
 				end
 				groupsWindow:getBrowser():executeJavascript('$("'..groupshtml..'").appendTo(".table tbody");');
+			elseif url:find("http://mta/local/group.html?") then -- ładujemy "dane" grupy
+				local groupid = url:sub(37)
+				if not groupid then
+					groupsWindow:getBrowser():loadURL("http://mta/local/playerGroups.html")
+					return
+				end
+				groupid = tonumber(groupid)
+				outputDebugString(groupid)
 			end
 		end)
 	end)

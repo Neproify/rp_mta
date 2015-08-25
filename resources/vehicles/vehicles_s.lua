@@ -6,7 +6,7 @@
 local db = exports.db
 
 addEventHandler("onResourceStart", resourceRoot, function()
-	local vehiclesToSpawn = db:fetch("SELECT `UID` FROM `rp_vehicles` WHERE `ownerType`=1")
+	local vehiclesToSpawn = db:fetch("SELECT `UID` FROM `rp_vehicles`")
 	for i,v in ipairs(vehiclesToSpawn) do
 		spawnVehicle(v["UID"])
 	end

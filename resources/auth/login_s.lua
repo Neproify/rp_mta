@@ -11,17 +11,17 @@ addEventHandler("onLoginRequest", root, function(login, password)
 	--local salt = db:fetch("SELECT `salt` FROM `mybb_users` WHERE `username`=? LIMIT 1;", login)
 	--salt = salt[1]["salt"]
 	--if not salt then
-	local passHash = db:fetch("SELECT `members_pass_hash, `members_pass_salt` FROM `ipb_core_members` WHERE `name`=? LIMIT 1;", login)
+	local passHash = db:fetch("SELECT `members_pass_hash`, `members_pass_salt` FROM `ipb_core_members` WHERE `name`=? LIMIT 1;", login)
 	local salt = passHash[1]["members_pass_salt"]
 	passHash = passHash[1]["members_pass_hash"]
-	local userPassHash = bcrypt_digest(password, "$2a$13$"..salt)
-	if not (userPassHash == passHash) then
+	if not passHash) then
 		local result = {success=false, message="Podane konto nie istnieje w bazie danych. Sprawdź czy wpisany login jest poprawny."}
 		triggerClientEvent(client, "onLoginResult", root, result)
 		return
 	end
 
-	if not bcrypt_verify(passHash, password) then
+	local userPassHash = bcrypt_digest(password, "$2a$13$"..salt)
+	if not (userPassHash == passHash) then
 		local result = {success=false, message="Podałeś nieprawidłowy login i/lub hasło."}
 		triggerClientEvent(client, "onLoginResult", root, result)
 		return

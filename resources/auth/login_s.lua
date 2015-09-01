@@ -13,6 +13,7 @@ addEventHandler("onLoginRequest", root, function(login, password)
 	--if not salt then
 	local passHash = db:fetch("SELECT `members_pass_hash` FROM `ipb_core_members` WHERE `name`=? LIMIT 1;", login)
 	passHash = passHash[1]["members_pass_hash"]
+	outputDebugString(passHash)
 	if not passHash then
 		local result = {success=false, message="Podane konto nie istnieje w bazie danych. Sprawdź czy wpisany login jest poprawny."}
 		triggerClientEvent(client, "onLoginResult", root, result)

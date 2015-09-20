@@ -7,7 +7,7 @@ addEventHandler("fetchCharacters", root, function()
 		return
 	end
 	local characters = db:fetch("SELECT * FROM `rp_characters` WHERE `global`=?", globalInfo["UID"])
-	if not characters then
+	if not characters[1] then
 		client:kick("Nie posiadasz żadnej postaci.")
 		return
 	end

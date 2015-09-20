@@ -5,4 +5,7 @@
 	<script src="char_s.lua" type="server"/>
 	<script src="char_c.lua" type="client"/>
 	<file src="login.html"/>
+	<aclrequest>
+	 	<right name="function.kick" access="true" />
+    </aclrequest>
 </meta>

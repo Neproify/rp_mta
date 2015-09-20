@@ -1,7 +1,7 @@
 local dbAddress = "127.0.0.1"
-local dbUser = "santosrp"
+local dbUser = "neproify"
 local dbPassword = "STdyt125"
-local dbDatabase = "santosrp"
+local dbDatabase = "neproify_santos"
 local dbHandle = nil
 
 addEventHandler("onResourceStart", resourceRoot, function()

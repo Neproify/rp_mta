@@ -6,6 +6,6 @@
 	<script src="char_c.lua" type="client"/>
 	<file src="login.html"/>
 	<aclrequest>
-	 	<right name="function.kick" access="true" />
+	 	<right name="function.kickPlayer" access="true" />
     </aclrequest>
 </meta>
